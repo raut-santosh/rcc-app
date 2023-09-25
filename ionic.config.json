@@ -1,0 +1,7 @@
+{
+  "name": "rcc-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
