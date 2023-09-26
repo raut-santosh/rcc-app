@@ -9,14 +9,14 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        let ls = localStorage.getItem('ecomUser');
+        let ls = localStorage.getItem('directusCurrentUser');
         if(ls){
             let currentUser = JSON.parse(ls);
             console.log(currentUser);
-            if (currentUser && currentUser.token) {
+            if (currentUser && currentUser.data.access_token) {
                 request = request.clone({
                     setHeaders: {
-                        authorization: `${currentUser.token}`
+                        Authorization: `Bearer ${currentUser.data.access_token}`
                     }
                 });                
             }
