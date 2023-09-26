@@ -1,0 +1,231 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>member</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">member</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+ 
+
+       
+    
+    <form name="form" (ngSubmit)="formSubmit()" ngNativeValidate>
+
+
+<div class="row">
+<div class="col-lg-9">
+    <div class="card">
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label" for="project-title-input">Name</label>
+                <input required type="text" class="form-control" id="project-title-input" name="name" 
+                    placeholder="Enter Title">
+            </div>
+
+            
+
+          
+
+
+
+          <div class="mb-3">
+            <label class="form-label" for="tagline">Aliases</label>
+            <span style="color:gray;font-style: oblique;"><br>
+                Please save first before adding aliases.</span>
+            <!-- <app-autocomplete *ngIf="model?._id" [data]="{multiple:true,model:'master',item:model.aliases ?? model.aliases,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'content_alias_'+model._id}}" (output)="model.aliases=$event;_set_csv('aliases')"></app-autocomplete> -->
+          </div>
+
+
+           
+
+            <div class="mb-3">
+                <label class="form-label" for="tagline">Related Content - Used Content</label>
+               
+                <!-- <app-autocomplete [data]="{multiple:true,model:'content',item:model.content ?? model.content,searchable:true,addtag:false,is_outputobject:true}" (output)="model.content=$event;"></app-autocomplete> -->
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="tagline">Content Details</label>
+                <table style="width:100%" [cellPadding]="10" [cellSpacing]="10">
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th> 
+
+                    </tr>
+
+                    <!-- <tr *ngFor="let mc of model.content;let i=index"> -->
+                      <tr>
+                        <td>
+                            <!-- {{mc.name}} -->
+                        </td>
+                        <td>
+                            <!-- {{mc?.category_name}} -->
+                        </td>
+                    </tr>
+
+                    </table>
+
+                    <hr>
+            </div>
+
+
+
+              <div class="mb-3">
+                <label class="form-label" for="tagline">Associated Members</label>
+               
+                <!-- <app-autocomplete [data]="{multiple:true,model:'member',item:model.members ?? model.members,searchable:true,addtag:true,is_outputobject:true}" (output)="model.members=$event;model.members_roleshare=$event;_set_csv('members')"></app-autocomplete> -->
+              </div>
+
+
+              <!-- <div class="mb-3" *ngIf="model.members"> -->
+                <div class="mb-3">
+                <label class="form-label" for="tagline">Member Associations</label>
+                <table style="width:100%" [cellPadding]="10" [cellSpacing]="10">
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Rights</th>
+                        <th>Share (%)</th>
+                        <th>Validity</th>
+
+                    </tr>
+                    <!-- <tr *ngFor="let ma of model.members;let i=index"> -->
+                      <tr>
+                        <td style="width:250px">
+                            <!-- {{ma.name}} -->
+                        </td>
+                        <td style="width:150px">
+                            <!-- <app-autocomplete [data]="{multiple:false,model:'master',item:model.members_roleshare[i].role,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'member_tag'}}" (output)="model.members_roleshare[i].role=$event;model.members_roleshare[i].role_name=$event.name"></app-autocomplete> -->
+
+                        </td>
+                        <td style="width:150px">
+                            <!-- <app-autocomplete [data]="{multiple:true,model:'master',item:model.members_roleshare[i].rights,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'content_member_right'}}" (output)="model.members_roleshare[i].rights=$event;"></app-autocomplete> -->
+                        </td>
+                        <td style="width:100px">
+                            <!-- <input type="number" max="100" min="0" class="form-control" id="project-title-input_{{i}}" name="share_percentage_{{i}}" 
+                             [(ngModel)]="model.members_roleshare[i].share_percentage"
+                            placeholder="Enter %"> -->
+                            <input type="number" max="100" min="0" class="form-control" id="project-title-input_" name="share_percentage" 
+                            
+                           placeholder="Enter %">
+                        </td>
+
+                         <td >
+                          
+                        </td>  
+
+
+                    </tr>
+                </table>
+              </div>
+            
+        </div>
+        <!-- end card body -->
+    </div>
+    <!-- end card -->
+
+  
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Codes</h5>
+        </div>
+        <div class="card-body"> 
+            <div class="mb-3">
+                <label class="form-label" for="code_isrc">ISRC</label>
+                <input  type="text" class="form-control" id="code_isrc" name="code_isrc" 
+                    placeholder="Code ISRC">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="code_isrc">ISWC</label>
+                <input  type="text" class="form-control" id="code_iswc" name="code_iswc"  
+                    placeholder="Code ISWC">
+            </div>
+
+            </div>
+    </div>
+   
+</div>
+<!-- end col -->
+<div class="col-lg-3">
+    <div class="card">
+      
+    
+
+
+        <div class="card-header">
+            <h5 class="card-title mb-0">Status</h5>
+        </div>
+        <div class="card-body"> 
+            <div> 
+                <!-- <app-autocomplete [data]="{multiple:false,model:'master',item:model.status?._id ?? model.status,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'content_status'}}" (output)="model.status=$event;model.status_name=$event.name ?? $event.alias"></app-autocomplete> -->
+            
+               
+            </div>
+        </div>
+
+
+
+        <div class="card-header">
+            <h5 class="card-title mb-0">Category</h5>
+        </div>
+        <div class="card-body"> 
+            <div> 
+                <!-- <app-autocomplete [data]="{multiple:false,model:'master',item:model.category?._id ?? model.category,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'content_category'}}" (output)="model.category=$event;model.category_name=$event.name ?? $event.alias"></app-autocomplete> -->
+            
+               
+            </div>
+        </div>
+
+
+
+        <div class="card-header">
+            <h5 class="card-title mb-0">Tags</h5>
+        </div>
+        <div class="card-body"> 
+            <div> 
+                <!-- <app-autocomplete [data]="{multiple:true,model:'master',item:model.tags ?? model.tags,searchable:true,addtag:true,is_outputobject:true,filtermodel:{master_alias:'content_tag'}}" (output)="model.tags=$event;"></app-autocomplete> -->
+              
+               
+            </div>
+        </div>
+
+        <!-- end card body -->
+    </div>
+    <!-- end card -->
+
+    
+    <!-- end card -->
+</div>
+<!-- end col -->
+<div class="col-lg-9">
+    <div class="card-header d-grid">
+        <button type="submit"   class="btn btn-success mb-2">
+            <!-- {{ model._id ? "Update" : "Save" }} {{ data.model |titlecase }} -->
+        </button> 
+    </div>  
+
+</div>
+
+</div>
+
+       
+
+  
+
+    </form> 
+
+
+
+
+
+
+<!-- {{data|json}} -->
+</ion-content>
