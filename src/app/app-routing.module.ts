@@ -25,6 +25,30 @@ const routes: Routes = [
   {
     path: 'member',
     loadChildren: () => import('./pages/member/member.module').then( m => m.MemberPageModule)
+  },
+  {
+    path: 'data-master',
+    loadChildren: () => import('./pages/data-master/data-master.module').then( m => m.DataMasterPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'contract',
+    loadChildren: () => import('./pages/contract/contract.module').then( m => m.ContractPageModule)
+  },
+  {
+    path: 'payouts',
+    loadChildren: () => import('./pages/payouts/payouts.module').then( m => m.PayoutsPageModule)
+  },
+  {
+    path: 'stream-report',
+    loadChildren: () => import('./pages/stream-report/stream-report.module').then( m => m.StreamReportPageModule)
+  },
+  {
+    path: 'streams',
+    loadChildren: () => import('./pages/streams/streams.module').then( m => m.StreamsPageModule)
   }
   
 ];

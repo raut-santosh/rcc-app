@@ -13,14 +13,14 @@
             <form (ngSubmit)="formSubmit($event)" novalidate>
               <ion-item>
                 <ion-label position="floating">Email</ion-label>
-                <ion-input type="text" name="email" [(ngModel)]="model.email" required></ion-input>
+                <ion-input type="text" name="email" required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label position="floating">Password</ion-label>
-                <ion-input type="password" name="password" [(ngModel)]="model.password" required></ion-input>
+                <ion-input type="password" name="password"  required></ion-input>
               </ion-item>
               <ion-item lines="none" class="ion-align-items-center">
-                <ion-checkbox [(ngModel)]="rememberMe" name="remember" value="true" class="ion-margin-end"></ion-checkbox>
+                <ion-checkbox  name="remember" value="true" class="ion-margin-end"></ion-checkbox>
                 <ion-label>Remember me</ion-label>
               </ion-item>
               <ion-button expand="full" color="primary" type="submit">Login</ion-button>
