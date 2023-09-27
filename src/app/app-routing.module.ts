@@ -15,11 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule),
   },
   {
     path: 'content',
-    loadChildren: () => import('./pages/content/content.module').then( m => m.ContentPageModule)
+    loadChildren: () => import('./pages/content/content.module').then( m => m.ContentPageModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'member',

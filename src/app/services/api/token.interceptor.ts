@@ -5,24 +5,21 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // add authorization header with jwt token if available
-        let ls = localStorage.getItem('directusCurrentUser');
-        if(ls){
-            let currentUser = JSON.parse(ls);
-            console.log(currentUser);
-            if (currentUser && currentUser.data.access_token) {
-                request = request.clone({
-                    setHeaders: {
-                        Authorization: `Bearer ${currentUser.data.access_token}`
-                    }
-                });                
-            }
-        }
-        return next.handle(request);
-            
-        }
-        
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Get the access token from your AuthService
+    const accessToken = this.authService.currentUserValue?.token;
+
+    // Check if there's an access token and add it to the request headers
+    if (accessToken) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
     }
+
+    return next.handle(request);
+  }
+}
