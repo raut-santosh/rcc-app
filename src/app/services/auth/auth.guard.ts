@@ -10,17 +10,17 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {
-    console.log('AuthGuard');
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // let ls = localStorage.getItem('currentUser');
-    // if(ls){
-    //   let currentUser = JSON.parse(ls);
-    //   if (currentUser && currentUser.token) {
-    //     return true;
-    //   }
-    // }
+    let ls = localStorage.getItem('directusCurrentUser');
+    if(ls){
+      let currentUser = JSON.parse(ls);
+      if (currentUser && currentUser.data.access_token) {
+        console.log('AuthGuard');
+        return true;
+      }
+    }
     
     // console.log('user is not logged in');
     // // not logged in so redirect to login page with the return url
