@@ -1,6 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Menu Content</ion-title>
+<!-- sidebar.component.html -->
+<ion-header id="sidebar">
+  <ion-toolbar class="sidebar__profile">
+    <!-- Display a user profile image (replace src with your image URL) -->
+    <div class="sidebar__profile-container">
+      <ion-avatar slot="start" class="sidebar__profile-avatar">
+        <img src="https://via.placeholder.com/64" alt="User Avatar">
+      </ion-avatar>
+      <!-- Display the user's name -->
+      <span class="sidebar__profile-name">User Name</span>
+    </div>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">This is the menu content.</ion-content>
+<ion-content class="ion-padding vh-100 sidebar__content">
+  <!-- Sidebar menu items -->
+  <ion-list lines="none">
+    <ion-menu-toggle auto-hide="false">
+      <ion-item routerLink="/dashboard">
+        <ion-icon slot="start" name="home"></ion-icon>
+        Dashboard
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle auto-hide="false">
+      <ion-item routerLink="/profile">
+        <ion-icon slot="start" name="person"></ion-icon>
+        Profile
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle auto-hide="false">
+      <ion-item routerLink="/settings">
+        <ion-icon slot="start" name="settings"></ion-icon>
+        Settings
+      </ion-item>
+    </ion-menu-toggle>
+    
+    <!-- Add more sidebar menu items as needed -->
+  </ion-list>
+</ion-content>
