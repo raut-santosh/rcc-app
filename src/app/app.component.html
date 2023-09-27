@@ -1,3 +1,17 @@
+<!-- app.component.html -->
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content">
+    <!-- Include your custom sidebar component -->
+    <app-sidebar></app-sidebar>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <!-- Include your custom header component -->
+    <app-header></app-header>
+
+    <ion-content class="ion-padding">
+      <!-- This is where your routed content will be displayed -->
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+  </div>
 </ion-app>
