@@ -1,5 +1,6 @@
 #sidebar{
     box-shadow: none;
+    
 }
 .sidebar__profile-container{
     display: flex;
@@ -9,3 +10,21 @@
 .ion-menu-toggle_item-content{
     padding-left:40px;
 }
+// .sidebar__content{
+//    --background: red;
+// }
+// ::ion-menu-toolbar{
+//     background-color: red;
+// }
+ion-item {
+color:blue;
+}
+ion-icon {
+    color:blue;
+    }
+   .sidebar__profile-name{
+color: blue;
+    }
+    ion-header{
+        margin-top: 50px;
+    }

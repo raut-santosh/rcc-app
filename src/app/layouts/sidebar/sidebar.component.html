@@ -1,19 +1,19 @@
 <!-- sidebar.component.html -->
 <ion-header id="sidebar">
   <ion-toolbar class="sidebar__profile">
-    <!-- Display a user profile image (replace src with your image URL) -->
+   
     <div class="sidebar__profile-container">
       <ion-avatar slot="start" class="sidebar__profile-avatar">
         <img src="https://via.placeholder.com/64" alt="User Avatar">
       </ion-avatar>
-      <!-- Display the user's name -->
+  
       <span class="sidebar__profile-name">User Name</span>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding vh-100 sidebar__content">
   <!-- Sidebar menu items -->
-  <ion-list lines="none">
+  <ion-list lines="none" class="sidebar__content--list">
     <ion-menu-toggle auto-hide="false">
       <ion-item routerLink="/dashboard">
         <ion-icon slot="start" name="home"></ion-icon>
