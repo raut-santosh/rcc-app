@@ -16,77 +16,39 @@ export class DashboardPage implements OnInit {
   constructor(private apiService : ApiService) { }
 
   ngOnInit() {
+    this.createChart1();
+    this.createChart2();
   }
 
-  ngAfterViewInit() {
-    this.renderLineChart();
-  }
-
-  renderLineChart() {
-    const ctx = this.lineChartCanvas.nativeElement;
-
-    this.chart = new Chart(ctx, {
-      type: 'line',
+  createChart1() {
+    const ctx = document.getElementById('chart1') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'bar',
       data: {
-        labels: [],
-        datasets: [],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: true,
-            position: 'top',
+        labels: ['Label 1', 'Label 2', 'Label 3'],
+        datasets: [
+          {
+            label: 'Chart 1 Data',
+            data: [10, 20, 30],
           },
-        },
-        scales: {
-          x: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Timestamp',
-            },
-            offset: true,
-          },
-          y: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Value',
-            },
-          },
-        },
+        ],
       },
     });
   }
 
-  
-  getData() {
-    this.apiService.callapi('GET_TIMESERIES', {}, null, 'get').subscribe(
-      (response: any) => {
-        console.log(response);
-        this.data = response.data;
-
-        const labels = response.data.map((item: any) => item.variable + ' : ' + item.timestamp);
-        const datasets = [{
-          label: 'Value',
-          data: response.data.map((item: any) => item.value),
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderWidth: 1,
-          fill: false,
-        }];
-
-        if (this.chart) {
-          this.chart.data.labels = labels;
-          this.chart.data.datasets = datasets;
-
-          this.chart.update();
-        }
+  createChart2() {
+    const ctx = document.getElementById('chart2') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Label A', 'Label B', 'Label C'],
+        datasets: [
+          {
+            label: 'Chart 2 Data',
+            data: [50, 30, 70],
+          },
+        ],
       },
-      (error: any) => {
-        console.error(error);
-      }
-    );
+    });
   }
 }
