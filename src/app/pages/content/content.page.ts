@@ -12,4 +12,18 @@ export class ContentPage implements OnInit {
   ngOnInit() {
   }
 
+  contents: any[] = [
+    {
+      title: 'Song 1',
+      artist: 'Artist A',
+      image: 'path-to-image-1.jpg',
+    },
+    {
+      title: 'Song 2',
+      artist: 'Artist B',
+      image: 'path-to-image-2.jpg',
+    },
+    // Add more content items as needed
+  ];
+
 }

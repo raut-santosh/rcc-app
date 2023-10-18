@@ -1,3 +1,36 @@
-<ion-content class="ion-padding">
-   <app-card-list></app-card-list>
-</ion-content>
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Music Library</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <!-- Filters -->
+    <ion-card>
+      <ion-card-header>
+        Filters
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Filter options go here (e.g., genre, artist, release date) -->
+      </ion-card-content>
+    </ion-card>
+  
+    <!-- Search Bar -->
+    <ion-searchbar></ion-searchbar>
+  
+    <!-- Content List -->
+    <ion-list>
+      <!-- Example content cards -->
+      <ion-item *ngFor="let content of contents">
+        <ion-thumbnail slot="start">
+          <img [src]="content.image">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ content.title }}</h2>
+          <p>Artist: {{ content.artist }}</p>
+          <!-- Other content details here -->
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

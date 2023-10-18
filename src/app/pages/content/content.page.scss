@@ -1,0 +1,16 @@
+/* Style the filters and search bar */
+ion-card {
+    margin: 10px;
+  }
+  
+  ion-searchbar {
+    margin: 10px;
+  }
+  
+  /* Style the content cards */
+  ion-item {
+    ion-thumbnail {
+      max-width: 100px; /* Adjust as needed */
+    }
+  }
+  
